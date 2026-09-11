@@ -26,7 +26,6 @@ const defaultScenarios = {
     ]
 };
 
-// Копія даних, куди додаватимуться власні прилади
 let scenariosData = JSON.parse(JSON.stringify(defaultScenarios));
 let currentScenario = 'house';
 let currentLang = 'uk';
@@ -34,7 +33,7 @@ let currentLang = 'uk';
 const translations = {
     uk: {
         title: "Power-generator-Calc UA",
-        subtitle: "Онлайн-калькулятор автономного живлення під час блек-аутів будинку коли російські терористи атакували енергетику країни.",
+        subtitle: "Онлайн-калькулятор автономного живлення під час блек-аутів будинку.",
         step1: "Крок 1: Виберіть сценарій використання",
         sc_house: "Приватний будинок",
         sc_apartment: "Квартира",
@@ -54,11 +53,15 @@ const translations = {
         fuel_gas_dual: "🔵 Газ-Бензин (LPG)",
         fuel_gas_desc: "Практичний вибір: економніша робота на зрідженому газі з балона.",
         fuel_diesel: "🛢️ Диззельний генератор",
-        fuel_diesel_desc: "Найкраще для тривалої або постійної роботи. Високий ресурс."
+        fuel_diesel_desc: "Найкраще для тривалої або постійної роботи. Високий ресурс.",
+        feedback: "💬 Залишити відгук чи побажання (Facebook)",
+        visitors: "Відвідувачі:",
+        created_by: "Створено",
+        with_help: "за допомогою Gemini"
     },
     en: {
         title: "Power-generator-Calc UA",
-        subtitle: "Online backup power calculator during blackouts when Russian terrorists attacked energy grid.",
+        subtitle: "Online backup power calculator during blackouts.",
         step1: "Step 1: Select usage scenario",
         sc_house: "Private House",
         sc_apartment: "Apartment",
@@ -78,7 +81,11 @@ const translations = {
         fuel_gas_dual: "Dual Fuel (LPG/Gasoline)",
         fuel_gas_desc: "Practical choice: economical operation on bottled gas.",
         fuel_diesel: "🛢️ Diesel Generator",
-        fuel_diesel_desc: "Best for long-term or continuous operation. High durability."
+        fuel_diesel_desc: "Best for long-term or continuous operation. High durability.",
+        feedback: "💬 Leave feedback or wishes (Facebook)",
+        visitors: "Visitors:",
+        created_by: "Created by",
+        with_help: "with the help of Gemini"
     },
     pl: {
         title: "Power-generator-Calc UA",
@@ -102,7 +109,11 @@ const translations = {
         fuel_gas_dual: "🔵 Gaz-Benzyna (LPG)",
         fuel_gas_desc: "Ekonomiczna praca na gazie z butli.",
         fuel_diesel: "🛢️ Generator diesla",
-        fuel_diesel_desc: "Najlepszy do długotrwałej pracy."
+        fuel_diesel_desc: "Najlepszy do długotrwałej pracy.",
+        feedback: "💬 Zostaw opinię lub życzenia (Facebook)",
+        visitors: "Odwiedzający:",
+        created_by: "Stworzone przez",
+        with_help: "z pomocą Gemini"
     },
     de: {
         title: "Power-generator-Calc UA",
@@ -126,7 +137,11 @@ const translations = {
         fuel_gas_dual: "🔵 Dual-Fuel (LPG/Benzin)",
         fuel_gas_desc: "Wirtschaftlicher Betrieb mit Flüssiggas.",
         fuel_diesel: "🛢️ Dieselgenerator",
-        fuel_diesel_desc: "Bestens geeignet für den Dauerbetrieb."
+        fuel_diesel_desc: "Bestens geeignet für den Dauerbetrieb.",
+        feedback: "💬 Feedback oder Wünsche hinterlassen (Facebook)",
+        visitors: "Besucher:",
+        created_by: "Erstellt von",
+        with_help: "mit Hilfe von Gemini"
     },
     fr: {
         title: "Power-generator-Calc UA",
@@ -150,7 +165,11 @@ const translations = {
         fuel_gas_dual: "🔵 Double carburant (GPL)",
         fuel_gas_desc: "Choix économique utilisant du gaz.",
         fuel_diesel: "🛢️ Générateur diesel",
-        fuel_diesel_desc: "Idéal pour un fonctionnement continu."
+        fuel_diesel_desc: "Idéal pour un fonctionnement continu.",
+        feedback: "💬 Laisser un avis ou des souhaits (Facebook)",
+        visitors: "Visiteurs :",
+        created_by: "Créé par",
+        with_help: "avec l'aide de Gemini"
     },
     es: {
         title: "Power-generator-Calc UA",
@@ -174,7 +193,11 @@ const translations = {
         fuel_gas_dual: "🔵 Dual Gas-Gasolina",
         fuel_gas_desc: "Opción económica con gas LP.",
         fuel_diesel: "🛢️ Generador diésel",
-        fuel_diesel_desc: "Mejor para funcionamiento continuo."
+        fuel_diesel_desc: "Mejor para funcionamiento continuo.",
+        feedback: "💬 Dejar comentarios o deseos (Facebook)",
+        visitors: "Visitantes:",
+        created_by: "Creado por",
+        with_help: "con la ayuda de Gemini"
     },
     it: {
         title: "Power-generator-Calc UA",
@@ -198,7 +221,11 @@ const translations = {
         fuel_gas_dual: "🔵 Dual-Fuel (GPL)",
         fuel_gas_desc: "Scelta pratica ed economica.",
         fuel_diesel: "🛢️ Generatore diesel",
-        fuel_diesel_desc: "Ottimale per uso prolungato."
+        fuel_diesel_desc: "Ottimale per uso prolungato.",
+        feedback: "💬 Lascia un feedback o desideri (Facebook)",
+        visitors: "Visitatori:",
+        created_by: "Creato da",
+        with_help: "con l'aiuto di Gemini"
     },
     cs: {
         title: "Power-generator-Calc UA",
@@ -222,7 +249,11 @@ const translations = {
         fuel_gas_dual: "🔵 Plyn-Benzín (LPG)",
         fuel_gas_desc: "Ekonomická volba.",
         fuel_diesel: "🛢️ Dieselový generátor",
-        fuel_diesel_desc: "Vhodný pro nepřetržitý provoz."
+        fuel_diesel_desc: "Vhodný pro nepřetržitý provoz.",
+        feedback: "💬 Zanechat zpětnou vazbu (Facebook)",
+        visitors: "Návštěvníci:",
+        created_by: "Vytvořil",
+        with_help: "pomocí Gemini"
     },
     sk: {
         title: "Power-generator-Calc UA",
@@ -246,7 +277,11 @@ const translations = {
         fuel_gas_dual: "🔵 Plyn-Benzín (LPG)",
         fuel_gas_desc: "Ekonomická voľba.",
         fuel_diesel: "🛢️ Dieselový generátor",
-        fuel_diesel_desc: "Najlepšie pre nepretržitú prevádzku."
+        fuel_diesel_desc: "Najlepšie pre nepretržitú prevádzku.",
+        feedback: "💬 Zanechať spätnú väzbu (Facebook)",
+        visitors: "Návštevníci:",
+        created_by: "Vytvoril",
+        with_help: "pomocou Gemini"
     },
     ro: {
         title: "Power-generator-Calc UA",
@@ -270,7 +305,11 @@ const translations = {
         fuel_gas_dual: "🔵 Gaz-Benzină (GPL)",
         fuel_gas_desc: "Alegere economică.",
         fuel_diesel: "🛢️ Generator diesel",
-        fuel_diesel_desc: "Cel mai bun pentru funcționare continuă."
+        fuel_diesel_desc: "Cel mai bun pentru funcționare continuă.",
+        feedback: "💬 Lăsați feedback (Facebook)",
+        visitors: "Vizitatori:",
+        created_by: "Creat de",
+        with_help: "cu ajutorul Gemini"
     }
 };
 
@@ -309,7 +348,6 @@ function addCustomAppliance() {
         return;
     }
 
-    // Переводимо у кВт, якщо введено у Вт
     let powerInKW = unitSelect.value === 'W' ? val / 1000 : val;
 
     scenariosData[currentScenario].push({
@@ -319,7 +357,6 @@ function addCustomAppliance() {
         custom: true
     });
 
-    // Очищуємо поля вводу
     nameInput.value = '';
     powerInput.value = '';
 
