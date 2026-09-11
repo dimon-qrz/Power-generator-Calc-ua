@@ -1,4 +1,4 @@
- 
+ https://dimon-qrz.github.io/Power-generator-Calc-ua/
 Power-generator-Calc UA is a modern web application designed to help users calculate and select the optimal generator power during blackouts and emergency power outages caused by attacks on energy infrastructure.
 
 # Power-generator-Calc-ua
