@@ -31,7 +31,7 @@
     </header>
 
     <main class="container">
-        <!-- Вибір сценарію -->
+        <!-- Крок 1: Сценарії -->
         <section class="card">
             <h2 data-i18n="step1">Крок 1: Виберіть сценарій використання</h2>
             <div class="scenario-grid">
@@ -50,7 +50,7 @@
             </div>
         </section>
 
-        <!-- Вибір фаз та приладів -->
+        <!-- Крок 2: Прилади та додавання нових -->
         <section class="card">
             <h2 data-i18n="step2">Крок 2: Параметри та побутові прилади</h2>
             
@@ -62,12 +62,24 @@
                 </select>
             </div>
 
-            <div class="appliances-list" id="appliancesList">
-                <!-- Динамічно заповнюється через JS залежно від сценарію -->
+            <!-- Форма для додавання власного приладу -->
+            <div class="add-appliance-box">
+                <h3 data-i18n="add_custom_title">Додати свій прилад:</h3>
+                <div class="add-row">
+                    <input type="text" id="customName" placeholder="Назва приладу (напр. Насос)" data-i18n-placeholder="placeholder_name">
+                    <input type="number" id="customPower" placeholder="Потужність (Вт або кВт)" step="0.01" min="0" data-i18n-placeholder="placeholder_power">
+                    <select id="powerUnit">
+                        <option value="kW">кВт</option>
+                        <option value="W">Вт</option>
+                    </select>
+                    <button type="button" class="btn-add" onclick="addCustomAppliance()" data-i18n="btn_add">Додати</button>
+                </div>
             </div>
+
+            <div class="appliances-list" id="appliancesList"></div>
         </section>
 
-        <!-- Результати та рекомендації -->
+        <!-- Крок 3: Результати -->
         <section class="card results-card" id="resultsSection">
             <h2 data-i18n="step3">Результат підбору</h2>
             
@@ -83,9 +95,7 @@
             </div>
 
             <h3 data-i18n="fuel_title">Рекомендації щодо типу палива:</h3>
-            <div class="fuel-recommendations" id="fuelRecommendations">
-                <!-- Картки палива з графічними зображеннями -->
-            </div>
+            <div class="fuel-recommendations" id="fuelRecommendations"></div>
         </section>
     </main>
 
