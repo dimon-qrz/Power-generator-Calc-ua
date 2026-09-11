@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power-generator-Calc UA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1 data-i18n="title">Power-generator-Calc UA</h1>
+            <p data-i18n="subtitle">Онлайн-калькулятор автономного живлення під час блек-аутів будинку коли російські терористи атакували енергетику країни.</p>
+            
+            <div class="lang-selector">
+                <label for="languageSelect">🌐 </label>
+                <select id="languageSelect">
+                    <option value="uk">Українська</option>
+                    <option value="en">English</option>
+                    <option value="pl">Polski</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                    <option value="it">Italiano</option>
+                    <option value="cs">Čeština</option>
+                    <option value="sk">Slovenčina</option>
+                    <option value="ro">Română</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Вибір сценарію -->
+        <section class="card">
+            <h2 data-i18n="step1">Крок 1: Виберіть сценарій використання</h2>
+            <div class="scenario-grid">
+                <button class="scenario-btn active" data-scenario="house" onclick="setScenario('house')">
+                    <span class="icon">🏡</span>
+                    <span data-i18n="sc_house">Приватний будинок</span>
+                </button>
+                <button class="scenario-btn" data-scenario="apartment" onclick="setScenario('apartment')">
+                    <span class="icon">🏢</span>
+                    <span data-i18n="sc_apartment">Квартира</span>
+                </button>
+                <button class="scenario-btn" data-scenario="business" onclick="setScenario('business')">
+                    <span class="icon">🏬</span>
+                    <span data-i18n="sc_business">Підприємство / Магазин</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Вибір фаз та приладів -->
+        <section class="card">
+            <h2 data-i18n="step2">Крок 2: Параметри та побутові прилади</h2>
+            
+            <div class="form-group">
+                <label data-i18n="phases_label">Кількість фаз мережі:</label>
+                <select id="phasesSelect">
+                    <option value="1">1 фаза (220В)</option>
+                    <option value="3">3 фази (380В)</option>
+                </select>
+            </div>
+
+            <div class="appliances-list" id="appliancesList">
+                <!-- Динамічно заповнюється через JS залежно від сценарію -->
+            </div>
+        </section>
+
+        <!-- Результати та рекомендації -->
+        <section class="card results-card" id="resultsSection">
+            <h2 data-i18n="step3">Результат підбору</h2>
+            
+            <div class="result-metrics">
+                <div class="metric-box">
+                    <span data-i18n="total_power">Розрахункова потужність:</span>
+                    <strong id="totalPowerVal">0 кВт</strong>
+                </div>
+                <div class="metric-box">
+                    <span data-i18n="rec_power">Рекомендована потужність (з урахуванням пускових струмів +20%):</span>
+                    <strong id="recPowerVal">0 кВт</strong>
+                </div>
+            </div>
+
+            <h3 data-i18n="fuel_title">Рекомендації щодо типу палива:</h3>
+            <div class="fuel-recommendations" id="fuelRecommendations">
+                <!-- Картки палива з графічними зображеннями -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
